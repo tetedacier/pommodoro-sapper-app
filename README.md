@@ -39,4 +39,4 @@ As a sapper app, all instruction provided by the [original sapper rollup documen
 
 ## Bugs and feedback
 
-All issues related to this project should be reported in pommodoro-svlete-app issue tracker. Those related to sapper should be reported in [Sapper issue tracker](https://github.com/sveltejs/sapper/issues).
+All issues related to this project should be reported in [pommodoro-sapper-app](https://github.com/tetedacier/pommodoro-sapper-app/issues) issue tracker. Those related to sapper should be reported in [Sapper issue tracker](https://github.com/sveltejs/sapper/issues).
