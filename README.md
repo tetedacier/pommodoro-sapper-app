@@ -17,6 +17,22 @@ npm run dev
 ```
 
 Open up [localhost:3000](http://localhost:3000) and begin your activity.
+
+### Running test
+
+You will need to install cypress globally to avoid shipping of non essential and heavy dependency onto staging/production :
+
+```bash
+npm i -g cypress
+```
+
+Then you can run test using the following npm scripts:
+
+```bash
+npm run cy:run # run test in headless mode
+npm run cy:open # run test with cypress tooling opened
+```
+
 ## Structure, bundler, mode and sapper instruction
 
 As a sapper app, all instruction provided by the [original sapper rollup documention](https://github.com/sveltejs/sapper-template/tree/rollup) apply on this project.
