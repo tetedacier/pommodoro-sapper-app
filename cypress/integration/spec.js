@@ -1,19 +1,10 @@
-describe('Sapper template app', () => {
+import {app_title} from '../../src/i18n/en.json'
+describe('Pommodoro sapper app', () => {
 	beforeEach(() => {
 		cy.visit('/')
 	});
 
-	it('has the correct <h1>', () => {
-		cy.contains('h1', 'Great success!')
-	});
-
-	it('navigates to /about', () => {
-		cy.get('nav a').contains('about').click();
-		cy.url().should('include', '/about');
-	});
-
-	it('navigates to /blog', () => {
-		cy.get('nav a').contains('blog').click();
-		cy.url().should('include', '/blog');
+	it('has a correct welcome page', () => {
+		cy.contains('h1', app_title)
 	});
 });

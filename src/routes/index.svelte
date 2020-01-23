@@ -32,11 +32,15 @@
 	}
 </style>
 
+<script>
+import { _ } from 'svelte-i18n'
+</script>
+
 <svelte:head>
 	<title>Sapper project template</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<h1>{$_('app_title')}</h1>
 
 <figure>
 	<img alt='Borat' src='great-success.png'>
