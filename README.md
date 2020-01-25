@@ -32,6 +32,10 @@ Then you can run test using the following npm scripts:
 npm run cy:run # run test in headless mode
 npm run cy:open # run test with cypress tooling opened
 ```
+## Principle
+
+This app allow you to track what your achievement. You first define your goal and run each of them through the tracker.
+
 
 ## Structure, bundler, mode and sapper instruction
 
