@@ -1,5 +1,5 @@
 <style>
-	h1, figure, p {
+	h1 {
 		text-align: center;
 		margin: 0 auto;
 	}
@@ -11,20 +11,6 @@
 		margin: 0 0 0.5em 0;
 	}
 
-	figure {
-		margin: 0 0 1em 0;
-	}
-
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
-
-	p {
-		margin: 1em auto;
-	}
-
 	@media (min-width: 480px) {
 		h1 {
 			font-size: 4em;
@@ -34,6 +20,13 @@
 
 <script>
 import { _ } from 'svelte-i18n'
+import { achievement } from '../stores'
+import ListAchievements from '../components/list-achievement.svelte'
+let goal = ''
+const achievementAdd = (event) => {
+	achievement.push({ goal })
+	goal = ''
+}
 </script>
 
 <svelte:head>
@@ -42,9 +35,9 @@ import { _ } from 'svelte-i18n'
 
 <h1>{$_('app_title')}</h1>
 
-<figure>
-	<img alt='Borat' src='great-success.png'>
-	<figcaption>HIGH FIVE!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+<fieldset>
+	<legend>What do you want to achieve ?</legend>
+	<label>Goal: <input name="goal" bind:value={goal} /></label>
+	<button on:click={achievementAdd}><span>Start tracking</span></button>
+</fieldset>
+<ListAchievements />
