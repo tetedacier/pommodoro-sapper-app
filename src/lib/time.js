@@ -1,0 +1,1 @@
+export const toSeconds = (milliseconds) => Math.round((milliseconds) / 1000)
