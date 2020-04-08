@@ -1,26 +1,33 @@
 <script>
+    import {onMount} from 'svelte'
+    import {fly} from 'svelte/transition'
     $: remainingLifeTime = 5;
-    import {fly } from 'svelte/transition'
     const closeOverlay = (event) => {
         event.preventDefault()
     }
-    // const inject = ()=> {
-    //     var targetNode;
 
-    //     if (typeof argument !== "string") {
-    //         targetNode = argument;
-    //     } else {
-    //         targetNode = document.querySelector(argument);
-    //     }
+    let show = false
 
-    //     targetNode.appendChild(node);
+    onMount(()=>{
+        show = true
+    })
+    const inject = (node, argument = "body") => {
+        var targetNode;
 
-    //     return {
-    //         destroy() {
-    //             node.remove();
-    //         }
-    //     }
-    // }
+        if (typeof argument !== "string") {
+            targetNode = argument;
+        } else {
+            targetNode = document.querySelector(argument);
+        }
+
+        targetNode.appendChild(node);
+
+        return {
+            destroy() {
+                node.remove();
+            }
+        }
+    }
 
 </script>
 
@@ -53,10 +60,9 @@ header {
 	overflow-y: scroll;
 }
 </style>
-<!-- <div use:inject in:fly="{{ y: -1400, duration: 800 }}"> -->
-<div in:fly="{{ y: -1400, duration: 800 }}">
-    <section class="overlay">
-        <div class="wrapper">
+<section use:inject class="overlay">
+    {#if show}
+        <div class="wrapper" in:fly="{{y:-800, duration:600}}">
             <header>
                 <slot name="title" />
                 <slot name="action">
@@ -66,9 +72,10 @@ header {
             <div class="content">
                 <slot name="content">
                     no content provided ?
-                    this will be closed automatically in {$remainingLifeTime} seconds
+                    this will be closed automatically in {remainingLifeTime} seconds
                 </slot>
             </div>
         </div>
-    </section>
-</div>
+    {/if}
+</section>
+
