@@ -4,22 +4,18 @@
 
 <script>
 	import { _ } from 'svelte-i18n'
-	import {getContext, setContext, onDestroy} from 'svelte'
 	import TransitionWrapper from '../components/TransitionWrapper.svelte'
 	import Topic from '../components/topic.svelte'
 	import Selector from '../components/selector.svelte'
 	import {toSeconds} from '../lib/time.js'
 
-	let topics = getContext('topics')
-	onDestroy(()=> {
-		setContext('topics', topics)
-	})
+	let topics = []
 
 </script>
 <TransitionWrapper>
-	<Selector bind:topics={topics} />
 
 	<h1>{$_('app_title')}</h1>
+	<Selector bind:topics={topics} />
 	{#if ( topics.length > 0 )}
 		total Time: {toSeconds(topics.reduce((acc, topic) => acc + topic.ellapsedTime, 0))} s
 		<ul>

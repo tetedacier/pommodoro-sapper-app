@@ -1,22 +1,13 @@
 <script>
-	export let topics = [];
-	const addTopic = (event) => {
-		const topicNameElement = event.target.parentNode.querySelector('input')
-		if (topicNameElement.value !== '') {
-			topics = topics.concat([{
-				name: topicNameElement.value,
-				ellapsedTime:0,
-                history: [],
-                subtasks: []
-			}])
-			topicNameElement.value = ""
-		} else {
-			throw new Error('')
-		}
-	}
+    import Overlay from '../components/overlay.svelte'
+    // $: internalOverlay = false;
+    export let topics = [];
+    export let forceOverlay = false;
+    $: internalOverlay = forceOverlay;
+    $: createNewTaskAfterSubmission = false;
 </script>
 <style>
-    button {
+    .trigger-overlay {
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
@@ -26,13 +17,46 @@
         justify-content: center;
         font-size: 1.2rem;
         background: linear-gradient(45deg, blue, red);
-
     }
 </style>
-<fieldset>
-	<input value="" />
-	<button
-        type="button"
-        on:click={addTopic}
-        aria-labelledby="Add topic">+</button>
-</fieldset>
+<button
+    class="trigger-overlay"
+    type="button"
+    on:click={(e)=> {
+        internalOverlay = true
+    }}
+    aria-labelledby="Add topic">+</button>
+
+
+{#if internalOverlay}
+    <Overlay>
+        <h2 slot="title">Lorem ipsum</h2>
+        <button slot="action" on:click={() => {internalOverlay = false}}>close</button>
+        <fieldset slot="content">
+            <label>
+                <input type="checkbox" bind:checked={createNewTaskAfterSubmission} />
+                create a new task after submission
+            </label>
+            <input name="task_name" value="" on:keypress={(e) => {
+                if (e.key === 'Enter') {
+                    if (e.target.value !== '') {
+                        topics = topics.concat([{
+                            name: e.target.value,
+                            ellapsedTime:0,
+                            history: [],
+                            subtasks: []
+                        }])
+                        if(! createNewTaskAfterSubmission) {
+                            internalOverlay = false;
+                        }
+                        e.target.value = ""
+                    } else {
+                        throw new Error('task name can\'t be empty')
+                    }
+                    return e.preventDefault()
+                }
+                console.log(e)
+            }} />
+        </fieldset>
+    </Overlay>
+{/if}
