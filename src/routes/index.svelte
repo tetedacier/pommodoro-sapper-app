@@ -13,9 +13,9 @@
 
 </script>
 <TransitionWrapper>
-	<Selector bind:topics={topics} />
 
 	<h1>{$_('app_title')}</h1>
+	<Selector bind:topics={topics} />
 	{#if ( topics.length > 0 )}
 		total Time: {toSeconds(topics.reduce((acc, topic) => acc + topic.ellapsedTime, 0))} s
 		<ul>
