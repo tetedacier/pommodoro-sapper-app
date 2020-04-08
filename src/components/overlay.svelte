@@ -1,5 +1,27 @@
 <script>
-	$: remainingLifeTime = 5;
+    $: remainingLifeTime = 5;
+    import {fly } from 'svelte/transition'
+    const closeOverlay = (event) => {
+        event.preventDefault()
+    }
+    // const inject = ()=> {
+    //     var targetNode;
+
+    //     if (typeof argument !== "string") {
+    //         targetNode = argument;
+    //     } else {
+    //         targetNode = document.querySelector(argument);
+    //     }
+
+    //     targetNode.appendChild(node);
+
+    //     return {
+    //         destroy() {
+    //             node.remove();
+    //         }
+    //     }
+    // }
+
 </script>
 
 <style>
@@ -31,20 +53,22 @@ header {
 	overflow-y: scroll;
 }
 </style>
-
-<section class="overlay">
-	<div class="wrapper">
-		<header>
-			<slot action="title" />
-			<slot action="action">
-				<button on:click={closeOverlay}>close</button>
-			</slot>
-		</header>
-		<div class="content">
-			<slot action="content">
-				no content provided ?
-				this will be closed automatically in {$remainingLifeTime} seconds
-			</slot>
-		</div>
-	</section>
-</section>
+<!-- <div use:inject in:fly="{{ y: -1400, duration: 800 }}"> -->
+<div in:fly="{{ y: -1400, duration: 800 }}">
+    <section class="overlay">
+        <div class="wrapper">
+            <header>
+                <slot name="title" />
+                <slot name="action">
+                    <button on:click={closeOverlay}>close</button>
+                </slot>
+            </header>
+            <div class="content">
+                <slot name="content">
+                    no content provided ?
+                    this will be closed automatically in {$remainingLifeTime} seconds
+                </slot>
+            </div>
+        </div>
+    </section>
+</div>

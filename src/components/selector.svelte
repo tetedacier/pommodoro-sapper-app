@@ -1,5 +1,7 @@
 <script>
-	export let topics = [];
+    import Overlay from '../components/overlay.svelte'
+    // $: internalOverlay = false;
+    export let topics = [];
 	const addTopic = (event) => {
 		const topicNameElement = event.target.parentNode.querySelector('input')
 		if (topicNameElement.value !== '') {
@@ -11,9 +13,10 @@
 			}])
 			topicNameElement.value = ""
 		} else {
-			throw new Error('')
+            // $internalOverlay = true;
+			throw new Error('task name can\'t be empty')
 		}
-	}
+    }
 </script>
 <style>
     button {
@@ -26,7 +29,6 @@
         justify-content: center;
         font-size: 1.2rem;
         background: linear-gradient(45deg, blue, red);
-
     }
 </style>
 <fieldset>
@@ -36,3 +38,10 @@
         on:click={addTopic}
         aria-labelledby="Add topic">+</button>
 </fieldset>
+<!--
+{#if $internalOverlay}
+    <Overlay>
+        <h2 slot="title">Lorem ipsum</h2>
+        <article slot="content">Lorem ipsum dolor sit amet</article>
+    </Overlay>
+{/if} -->
