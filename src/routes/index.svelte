@@ -10,10 +10,7 @@
 	import Selector from '../components/selector.svelte'
 	import {toSeconds} from '../lib/time.js'
 
-	let topics = getContext('topics')
-	onDestroy(()=> {
-		setContext('topics', topics)
-	})
+	let topics = []
 
 </script>
 <TransitionWrapper>

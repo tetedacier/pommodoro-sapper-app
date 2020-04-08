@@ -9,7 +9,6 @@ import { waitLocale } from 'svelte-i18n'
 <script>
 	import { setContext } from 'svelte'
 	import Nav from '../components/Nav.svelte';
-	setContext('topics', [])
 	export let segment;
 </script>
 
