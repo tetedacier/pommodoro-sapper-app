@@ -38,7 +38,6 @@
                 create a new task after submission
             </label>
             <input name="task_name" value="" on:keypress={(e) => {
-                console.warn(createNewTaskAfterSubmission)
                 if (e.key === 'Enter') {
                     if (e.target.value !== '') {
                         topics = topics.concat([{
