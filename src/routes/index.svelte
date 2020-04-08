@@ -4,7 +4,6 @@
 
 <script>
 	import { _ } from 'svelte-i18n'
-	import {getContext, setContext, onDestroy} from 'svelte'
 	import TransitionWrapper from '../components/TransitionWrapper.svelte'
 	import Topic from '../components/topic.svelte'
 	import Selector from '../components/selector.svelte'

@@ -7,7 +7,6 @@ import { waitLocale } from 'svelte-i18n'
   }
 </script>
 <script>
-	import { setContext } from 'svelte'
 	import Nav from '../components/Nav.svelte';
 	export let segment;
 </script>
