@@ -3,7 +3,8 @@
   "description": "Simple time tracking application",
   "version": "0.1.0",
   "scripts": {
-    "dev": "node server && sapper dev",
+    "dev": "sapper dev",
+    "backend": "node server",
     "build": "sapper build --legacy",
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
