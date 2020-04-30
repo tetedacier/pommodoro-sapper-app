@@ -8,15 +8,16 @@
 </script>
 <style>
     .trigger-overlay {
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 1.25em;
+        border: .25rem solid white;
         color: white;
         font-weight: bold;
         display: flex;
         justify-content: center;
         font-size: 1.2rem;
-        background: linear-gradient(45deg, blue, red);
+        background: linear-gradient(-180deg, blue, navajowhite);
     }
 </style>
 <button

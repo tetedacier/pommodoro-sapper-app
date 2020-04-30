@@ -7,6 +7,7 @@
 		border-bottom: 1px solid rgba(255,62,0,0.1);
 		font-weight: 300;
 		padding: 0 1em;
+		background: linear-gradient(-180deg, navajowhite, silver);
 	}
 
 	ul {
@@ -45,6 +46,11 @@
 		text-decoration: none;
 		padding: 1em 0.5em;
 		display: block;
+		font-weight: bold;
+	}
+	a:focus {
+		color: white;
+		background-color: black;
 	}
 </style>
 
