@@ -6,6 +6,18 @@
             "activities": [
                 { "name": "test", "ellapsedTime":0, "history":[], "subtasks": [] }
             ]
+        },
+        {
+            "date": "2020-04-30",
+            "activities": [
+              {
+                "name": "plan",
+                "ellapsedTime": 0,
+                "history": [],
+                "subtasks": []
+              }
+            ],
+            "id": 2
         }
     ]
 }
