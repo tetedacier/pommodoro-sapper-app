@@ -38,7 +38,11 @@
                 <input type="checkbox" bind:checked={createNewTaskAfterSubmission} />
                 create a new task after submission
             </label>
-            <input name="task_name" value="" on:keypress={(e) => {
+            <!--
+                autofocus below is not really accessible at first,
+                but a way needs to be found to make it so
+            -->
+            <input name="task_name" value="" autofocus on:keypress={(e) => {
                 if (e.key === 'Enter') {
                     if (e.target.value !== '') {
                         topics = topics.concat([{
