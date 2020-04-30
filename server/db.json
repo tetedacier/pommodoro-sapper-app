@@ -1,23 +1,33 @@
 {
-    "dailies": [
+  "dailies": [
+    {
+      "id": 1,
+      "date": "2020-04-29",
+      "activities": [
         {
-            "id": 1,
-            "date": "2020-04-29",
-            "activities": [
-                { "name": "test", "ellapsedTime":0, "history":[], "subtasks": [] }
-            ]
-        },
-        {
-            "date": "2020-04-30",
-            "activities": [
-              {
-                "name": "plan",
-                "ellapsedTime": 0,
-                "history": [],
-                "subtasks": []
-              }
-            ],
-            "id": 2
+          "name": "test",
+          "ellapsedTime": 0,
+          "history": [],
+          "subtasks": []
         }
-    ]
+      ]
+    },
+    {
+      "date": "2020-04-30",
+      "activities": [
+        {
+          "name": "plan",
+          "ellapsedTime": 4003,
+          "history": [
+            {
+              "ellapsed": 4003,
+              "start": 1588240257443
+            }
+          ],
+          "subtasks": []
+        }
+      ],
+      "id": 2
+    }
+  ]
 }
