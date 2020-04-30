@@ -1,7 +1,7 @@
 {
   "name": "pommodoro-sapper-app",
   "description": "Simple time tracking application",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "dev": "node server && sapper dev",
     "build": "sapper build --legacy",
