@@ -13,7 +13,12 @@ check_release_level () {
     done
     return 1
 }
-
+update_package () {
+    package_path="${1:-}"
+    package_version="${2:-}"
+    package_content="$(jq '.version = "'"${package_version}"'"' < "${package_path}")"
+    echo "${package_content}"> "${package_path}"
+}
 usage() {
     reason=${1:-}
     if [[ -n "${reason}" ]]; then
@@ -56,8 +61,6 @@ fi
 
 new_release_version="$(./node_modules/.bin/semver  -i "${release_level}" "$(jq -r '.version' < package.json)")"
 
-# write new version in package's files
-echo "$(jq '.version = "'${new_release_version}'"' < package.json)" > new-package.json
-echo "$(jq '.version = "'${new_release_version}'"' < package-lock.json)"> new-package-lock.json
-# `echo "$(jq 'whatever' < a)"> a` syntax above prevent content deletion of the `a` file
+update_package "package.json" "${new_release_version}"
+update_package "package-lock.json" "${new_release_version}"
 
