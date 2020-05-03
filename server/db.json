@@ -17,17 +17,68 @@
       "activities": [
         {
           "name": "plan",
-          "ellapsedTime": 4003,
+          "ellapsedTime": 19005,
           "history": [
             {
               "ellapsed": 4003,
               "start": 1588240257443
+            },
+            {
+              "ellapsed": 3002,
+              "start": 1588256178370
+            }
+          ],
+          "subtasks": [
+            {
+              "name": "todos",
+              "ellapsedTime": 4000,
+              "history": [
+                {
+                  "ellapsed": 4000,
+                  "start": 1588256173393
+                }
+              ],
+              "subtasks": []
+            }
+          ]
+        }
+      ],
+      "id": 2
+    },
+    {
+      "date": "2020-05-03",
+      "activities": [
+        {
+          "name": "meow",
+          "ellapsedTime": 8001,
+          "history": [
+            {
+              "ellapsed": 6001,
+              "start": 1588520230340
+            },
+            {
+              "ellapsed": 2000,
+              "start": 1588520240630
+            }
+          ],
+          "subtasks": []
+        },
+        {
+          "name": "waf",
+          "ellapsedTime": 2001,
+          "history": [
+            {
+              "ellapsed": 2001,
+              "start": 1588520237082
+            },
+            {
+              "ellapsed": 0
             }
           ],
           "subtasks": []
         }
       ],
-      "id": 2
+      "id": 3
     }
   ]
 }
